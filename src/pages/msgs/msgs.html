@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Past Devotionals</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="closeModalObj()">
+                <ion-icon item-right name="ios-close-outline"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+        pullingText="Pull to refresh...">
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <ion-item>
+      <ion-label color="primary" stacked>Search Devotionals</ion-label>
+      <ion-input type="text" placeholder="..enter keywords to search"></ion-input>
+    </ion-item>
+
+    <br/>
+
+    <ion-list>
+
+        <ion-item  *ngFor="let msg of msgs" (click)="openDayMsg(msg?.id)">
+          <ion-avatar item-start>
+            <img src="../../../assets/imgs/dev.jpg">
+          </ion-avatar>
+          <h2 text-wrap>{{msg?.topic}}</h2>
+          <small text-muted style="color: #333333 !important;">{{msg?.date}} </small>
+          <p style="font-size:11px; color: #2974d4 !important;">{{msg?.speaker}}</p>
+        </ion-item>
+
+    </ion-list>
+
+</ion-content>

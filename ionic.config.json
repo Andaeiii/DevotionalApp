@@ -1,0 +1,7 @@
+{
+  "name": "devchrch",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

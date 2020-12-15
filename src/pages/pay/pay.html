@@ -1,0 +1,76 @@
+<ion-header>
+    <ion-navbar color="">
+      <ion-title>Current Subscription</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+  
+    <ion-grid>
+      <ion-row>
+  
+        <ng-container *ngIf="order?.daysleft > 1; else elseTemplate">
+            <ion-col col-12>
+                <div wrap-text style="height:40px;padding:5px 10px;">
+
+                    <div style="font-size:12px; color:#666666; line-height:20px;">
+                        Welcome <b style="color:#006699">{{user?.fullname}}</b>, <br/>
+                        with email :: <b>{{user?.email}}</b><br/>
+                        usercode :: <b>{{user?.authcode}}</b><br/>
+                        <hr/>
+                     </div>  
+                    <span class="notespan">you currently have :: </span>
+              
+                    <h1>{{order?.daysleft}} days Left</h1>
+                    <br/>
+      
+                    <div style="font-size:15px; color:#1a1717;"> Details </div>
+                    <hr/>
+                    <div style="font-size:12px; color:#666666;"><b>Started On</b> :: {{order?.starts}}</div> 
+                    <div style="font-size:12px; color:#006699; margin:5px 0px 10px;"><b>Ends On</b> :: {{order?.ends}}</div>
+                    <hr/>
+                    <div style="font-size:12px; color:#666666; line-height:20px;"> you subscribed for a <b>{{order?.plan}}</b> plan - <b>{{order?.period}}</b>, <br/> and the day was <b>{{order?.p_date}}</b></div>
+        
+                    <br/>
+                    <button ion-button button  primary (click)="loadTodaysMsg()"> Continue </button> 
+        
+                 </div>
+            </ion-col>
+        </ng-container>
+  
+        <ng-template #elseTemplate>
+            <ion-col col-12>
+                <div wrap-text style="height:40px;padding:5px 10px;">
+                  <div style="font-size:12px; color:#666666; line-height:20px;">
+                    Welcome <b style="color:#006699">{{user?.fullname}}</b>, <br/>
+                    with email :: <b>{{user?.email}}</b><br/>
+                    usercode :: <b>{{user?.authcode}}</b><br/>
+                    <hr/>
+                    you dont have any active subscriptions,<br/> or your subscription has ended, pay to gain a ccess to your daily guide...
+                  </div>  
+                  <br/>
+                
+                  <ng-container *ngIf="istatus == 'down'; else elseButton">
+                    <button ion-button outline icon-start (click)="checkSubscriptn()"><ion-icon name="sync"></ion-icon> Check Status</button>
+                  </ng-container>
+
+                 <ng-template #elseButton>
+                  <button ion-button button  primary (click)="openPaymentPage()">Subscribe</button> 
+                 </ng-template>
+      
+                 </div>
+            </ion-col>
+        </ng-template>
+        
+  
+  
+      </ion-row>
+  
+    
+    </ion-grid>
+      
+    
+    
+  
+  </ion-content>
+  

@@ -1,0 +1,63 @@
+<!--
+  Generated template for the SrvPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+      
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Church Services</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>    
+
+    
+      <ion-card *ngFor="let s of servs">
+    
+        <ion-row>
+          <ion-col col-2 style="padding: 0px 0px 0px 0px !important;">
+            <ion-item>
+              <ion-avatar item-left>
+                <img src="">
+              </ion-avatar>
+            </ion-item>
+          </ion-col>
+          <ion-col col-10>
+            <h2 style="color:blue">{{s?.day}}</h2>
+            <hr/>
+            <h3><b>{{s?.title}}</b></h3>
+            <div class="dev_pst" style="font-size:12px; color:#666666;"> {{s?.start}} to {{s?.finish}} </div>
+    
+              <ion-row>
+                <ion-col col-4></ion-col>    
+                <ion-col col-2>
+                  <button (click)="shareByWhatsApp(s?.title)" ion-button icon-only color="primary" clear>
+                    <ion-icon class="share-icon" name="logo-whatsapp"></ion-icon>
+                  </button>
+                </ion-col>    
+                <ion-col col-2>
+                  <button (click)="shareByFacebook(s?.title)" ion-button icon-only color="primary" clear>
+                    <ion-icon  class="share-icon" name="logo-facebook"></ion-icon>
+                  </button>
+                </ion-col>    
+                <ion-col col-2>
+                  <button ion-button icon-only color="primary" clear>
+                    <ion-icon class="share-icon" name="logo-twitter"></ion-icon>
+                  </button>
+                </ion-col>    
+              </ion-row>
+    
+          </ion-col>
+        </ion-row>
+    
+      </ion-card>
+
+</ion-content>

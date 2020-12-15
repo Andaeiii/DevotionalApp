@@ -1,0 +1,46 @@
+<!--
+  Generated template for the PrqPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+      
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sent Requests</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+        <ion-refresher (ionRefresh)="doRefresh($event)">
+            <ion-refresher-content
+            pullingText="Pull to refresh...">
+            </ion-refresher-content>
+        </ion-refresher>
+ 
+
+        <ion-item *ngFor="let p of rqsts"> 
+              <button ion-button float-end clear (click)="delRqst(p?.id)">x</button>
+              <div class="smalltp">request | <span> {{p?.q_date}}</span></div>
+              <ion-title text-wrap>{{p?.qstn}}</ion-title>
+              <hr/>
+              <ion-card padding>
+                 <p *ngIf="p?.seen; else elseBlock" text-wrap> {{p?.ans}} </p>
+                 <ng-template #elseBlock>
+                   <span class="redtx">..no response yet</span>
+                 </ng-template>
+              </ion-card>
+              <div class="resptp" float-end>response at | <span> {{p?.a_date}}</span></div>
+        </ion-item>
+
+
+
+</ion-content>

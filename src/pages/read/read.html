@@ -1,0 +1,123 @@
+
+<ion-header>
+    
+        <ion-navbar>
+    
+          <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+    
+          <ion-title>Todays Devotional </ion-title>
+    
+          <ion-buttons end>
+              <button ion-button icon-only (click)="openPastMsgs()">
+                 more <ion-icon ios="ios-arrow-up-outline" md="md-arrow-up"></ion-icon>
+              </button>
+          </ion-buttons>
+    
+        </ion-navbar>
+    
+</ion-header>
+
+
+
+    
+    <ion-menu [content]="content" end>
+        <ion-content>
+            <ion-list>
+              <button menuClose ion-item>
+                safafsfad
+              </button>
+            </ion-list>
+          </ion-content>
+    </ion-menu>
+    
+    <ion-content padding>
+    
+        <h3 class="dev_tp" style="margin:15px 0px 0px !important; color:#003366; font-style:17px;">{{robj?.topic}}</h3>
+        
+        <ion-item-divider style="padding-left:0px !important;">
+    
+        <div class="dev_pst" style="font-size:12px; color:#666666;"> by {{robj?.speaker}}</div>
+        <div class="dev_dt" style="font-size:12px; color:#006699; margin:5px 0px 10px;">{{robj?.date}}</div>
+    
+       </ion-item-divider>
+    
+    
+    
+    <img src="{{robj?.imagefile}}"/>
+    
+    
+    
+        <ion-item-divider>
+    
+        <div style="padding:15px 0px; font-size:12px;"><b>Scripture :: </b>  {{robj?.scripture}}</div>
+    
+       </ion-item-divider>
+    
+    
+    
+        <div style="text-align:left; font-size:13px; margin-top:20px;" [innerHtml]="robj?.body"></div>
+    
+        <ion-item-divider></ion-item-divider>
+            
+        <ion-item-divider text-wrap>
+    
+            <div class="dev_pr" style="padding:10px 20px;font-size:12px; font-style:italic; color:#1f2020; margin:10px 0px">
+              <b>Prayer ::</b> {{robj?.prayer}}
+            </div>
+        </ion-item-divider>
+    
+        <ion-item-divider text-wrap>
+            
+            <div class="dev_pr" style="padding:10px 20px; font-size:15px; font-style:bold; color:#1f2020; margin:10px 0px">
+              <B>DECLARATION </B> <br/>
+              {{robj?.declaration}}
+            </div>
+    
+        </ion-item-divider>
+    
+          
+    <br/>
+    
+                <ion-item-divider text-wrap  style="padding-left:0px !important;">
+                <ion-grid>
+    
+                  <ion-row>
+                      <ion-col width-25>
+                          <div class="dev_pst" style="font-size:12px; color:#666666;"> 1 Year Bible Plan</div>
+                          <div class="dev_dt" style="font-size:12px; color:#006699; margin:5px 0px 10px;">{{robj?.bibleplan}}</div>
+                      </ion-col>
+    
+                      <ion-col width-25 offset-50 text-right>
+                        <button ion-button clear (click)="shwPrayerRqstDialog()">
+                          <Img src="../../../assets/imgs/prq.png"/>
+                        </button>
+                      </ion-col>
+    
+                  </ion-row>
+    
+                </ion-grid>
+               </ion-item-divider>  
+    
+    
+                    
+                    <div class="dev_pr" style="padding:10px 20px;font-size:12px; text-align:center; font-style:italic; color:#1f2020; margin:10px 0px">
+                      brought to you by <br/> Winners house of Faith church, Wihofa <br/><b>www.wihofa.org</b>
+                    </div>
+
+
+                    <ion-fab right bottom>
+                        <button ion-fab color="light">
+                            <ion-icon name="share"></ion-icon>
+                        </button>
+                        <ion-fab-list side="left">
+                          <button ion-fab (click)="shareByFb()"><ion-icon name="logo-facebook"></ion-icon></button>
+                          <button ion-fab (click)="shareByTw()"><ion-icon name="logo-twitter"></ion-icon></button>
+                          <button ion-fab (click)="shareByWa()"><ion-icon name="logo-whatsapp"></ion-icon></button>
+                        </ion-fab-list>
+                      </ion-fab>
+    
+    
+    </ion-content>
+    

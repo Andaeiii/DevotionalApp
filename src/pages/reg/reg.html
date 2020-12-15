@@ -1,0 +1,147 @@
+<!--
+  Generated template for the RegPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Account Page</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div padding>
+    <ion-segment [(ngModel)]="regtype">
+      <ion-segment-button value="new">
+        New Account
+      </ion-segment-button>
+      <ion-segment-button value="old">
+        Recover Account
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  
+  <div [ngSwitch]="regtype">
+
+
+
+    <div *ngSwitchCase="'new'" padding>
+       
+      
+        <form #myForm="ngForm" (ngSubmit)="postUserData()">
+            <ion-item>
+                <ion-label floating>Full Name, No initials</ion-label>
+                <ion-input type="text" [(ngModel)]="userObj.name" id="name" name="name" required #name="ngModel"></ion-input>
+
+            </ion-item>
+            <span *ngIf="name.errors">
+                <span [hidden]="!name.errors.required">
+                    <ion-label style="color: red; margin-left: 12px; font-size:11px"> FullName is required </ion-label>
+                </span>
+            </span>
+
+            <ion-item>
+                <ion-label floating>Email Address Please</ion-label>
+                <ion-input type="email" id="email"  [(ngModel)]="userObj.email"  name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required #email="ngModel"  ></ion-input>
+            </ion-item>
+            <span *ngIf="email.errors">
+                <span [hidden]="!email.errors.required">
+                    <ion-label style="color: red; margin-left: 12px;  font-size:11px"> Email is required </ion-label>
+                </span>
+                <span [hidden]="!email.errors.pattern">
+                    <ion-label style="color: red; margin-left: 12px; font-size:11px"> Please enter a valid email </ion-label>
+                </span>
+            </span>
+
+
+            <ion-item>
+              <ion-label floating>Select Department</ion-label>
+                  <ion-select id="unit" [(ngModel)]="userObj.unit" name="unit" required #unit="ngModel">
+                      <ion-option value="0">no department yet</ion-option>
+                      <ion-option *ngFor="let dept of depts" value="{{dept?.id}}">{{dept?.unit_name}}</ion-option>
+                  </ion-select>
+              </ion-item>
+              <span *ngIf="unit.errors">
+                  <span [hidden]="!unit.errors.required">
+                      <ion-label style="color: red; margin-left: 12px;  font-size:11px"> Email is required </ion-label>
+                  </span>
+              </span>
+                  
+            <ion-item>
+                <ion-label floating>Phone Number Please</ion-label>
+                <ion-input type="phone" id="phone"  [(ngModel)]="userObj.phone"  name="phone" required #phone="ngModel"  ></ion-input>
+            </ion-item>
+            <span *ngIf="phone.errors">
+                <span [hidden]="!phone.errors.required">
+                    <ion-label style="color: red; margin-left: 12px;  font-size:11px"> Phone is required </ion-label>
+                </span>
+            </span>
+
+            <ion-item>
+                <ion-label floating>Ambition, what do you do..</ion-label>
+                <ion-input type="text" id="contact" [(ngModel)]="userObj.skills" name="skills" required #skills="ngModel"></ion-input>
+            </ion-item>
+
+            <span *ngIf="skills.errors">
+                <span [hidden]="!skills.errors.required">
+                    <ion-label style="color: red; margin-left: 12px; font-size:11px"> skills is required </ion-label>
+                </span>
+            </span>
+
+            <ion-item>
+                <button [disabled]="!myForm.form.valid" type="submit" ion-button style="padding:10px 40px 10px 10px;">Submit</button>
+            </ion-item>
+        </form>
+
+
+    </div>
+
+  
+    <div *ngSwitchCase="'old'" padding>
+      
+      
+        <form #myCodeForm="ngForm" (ngSubmit)="findUserDt()">
+            <ion-item>
+                <ion-label floating>Search type..</ion-label>
+                <ion-select id="ctype" [(ngModel)]="codeObj.ctype" name="ctype" required>
+                    <ion-option value="code">by User Code</ion-option>
+                    <ion-option value="mail">by email address</ion-option>
+                </ion-select>  
+            </ion-item>
+
+            <ion-item>
+                <ion-label floating>Enter Value here</ion-label>
+                <ion-input type="ctval" id="ctval"  [(ngModel)]="codeObj.ctval"  name="ctval"  required></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <button type="submit" ion-button style="padding:10px 40px 10px 10px;">Submit</button>
+            </ion-item>
+     </form>
+
+
+    </div>
+    
+    <div class="dftxt" *ngSwitchDefault padding>
+
+      <b>New Account </b> if you are registering for the first time and havent registered before..
+      
+      <ion-item-divider></ion-item-divider>
+
+      <b>Retrieve Account</b> If you have registered before and you want to  continue to your session..
+      
+      <br/>
+      <br/>
+
+       hope you have a great time with God on this... 
+
+    </div>
+
+  </div>
+
+</ion-content>

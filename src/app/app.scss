@@ -1,0 +1,74 @@
+
+
+page-reg{
+    .dftxt{
+        font-size:14px; 
+        color:#666666; 
+        line-height: 25px;
+    }
+
+    .dftxt b{display:block; margin:10px 0px 5px;}
+
+    ion-item-divider{
+        padding-left:0px !important;
+        opacity: 1 !important;
+    }
+}
+page-evt{
+
+    ion-card{position:relative;}    
+    .evtcover{height: 200px; overflow-y:hidden; border:solid 1px #cccccc; }
+    .dtxt{padding:10px 0px 0px 16px; font-size:13px;}
+    span{color:#5285f1; font-weight: bold;}
+    p{font-size:11px !important;}
+    h3{
+        width:70%; font-weight:bolder; 
+        font-size:21px !important;
+        padding:10px 2px !important;
+    }
+    .dylft{
+        position:absolute;
+        font-size:45px; 
+        font-weight:bolder;
+        color:#067ead;
+        right:15px; top:15px;
+        background-color:#ffffff;
+        padding:5px 15px;
+        border:solid 4px #929292;
+        text-align: center;
+    }
+    .dylft span{font-size:12px; display:block;}
+}
+
+page-prq{
+    .smalltp{
+        font-size:11px; 
+        color:#5285f1; 
+    }
+    .resptp{
+        font-size:11px; 
+        color:#199255; 
+    }
+    .smalltp span{
+        color:#474747;
+    }
+
+    ion-title *{
+        padding-left:0px !important; 
+        margin-left:0px !important;
+        white-space:pre-wrap !important;
+    }
+    ion-card{
+        border-left:solid 7px #3b6d3b;
+    }
+}
+
+
+page-pay{
+    .notespan{
+        font-size:12px;
+        color:#666666;
+        line-height:20px;
+    }
+}
+

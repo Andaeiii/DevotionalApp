@@ -1,0 +1,40 @@
+<!--
+  Generated template for the EvtPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+      
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Upcoming Events</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+        pullingText="Pull to refresh...">
+        </ion-refresher-content>
+    </ion-refresher>
+
+  <div>
+
+    <ion-card *ngFor="let e of evts">
+       <div class="dylft">{{e?.days}}<span>days left</span></div>
+       <h3 padding text-wrap>{{e?.title}}</h3>
+      <div class="evtcover"><img [src]="e?.img"/></div>
+      <div class="dtxt"><span><ion-icon name="calendar"></ion-icon> </span> {{e?.date}}&nbsp; | &nbsp;<span><ion-icon name="time"></ion-icon> </span> {{e?.time}}</div>
+      <p padding><span>Details :: </span>{{e?.info}}</p>
+    </ion-card>
+   
+  </div>
+
+</ion-content>
